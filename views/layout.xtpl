@@ -9,11 +9,11 @@
   <meta name="author" content="">
   <title>Clean Blog</title>
   <!-- Bootstrap Core CSS -->
-  <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Theme CSS -->
-  <link href="./css/clean-blog.css" rel="stylesheet">
+  <link href="/css/clean-blog.css" rel="stylesheet">
   <!-- Custom Fonts -->
-  <link href="./vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -29,15 +29,15 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>Menu <i class="fa fa-bars"></i>
         </button>
-        <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+        <a class="navbar-brand" href="index.html">大白呀</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/post">Sample Post</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/">首页</a></li>
+          <li><a href="/about">关于</a></li>
+          <li><a href="/post">留言</a></li>
+          <li><a href="/contact">联系</a></li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -84,14 +84,14 @@
     </div>
   </footer>
   <!-- jQuery -->
-  <script src="./vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/jquery/jquery.min.js"></script>
   <!-- Bootstrap Core JavaScript -->
-  <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
   <!-- Contact Form JavaScript -->
-  <script src="./javascripts/jqBootstrapValidation.js"></script>
-  <script src="./javascripts/contact_me.js"></script>
+  <script src="/javascripts/jqBootstrapValidation.js"></script>
+  <script src="/javascripts/contact_me.js"></script>
   <!-- Theme JavaScript -->
-  <script src="./javascripts/clean-blog.js"></script>
+  <script src="/javascripts/clean-blog.js"></script>
 </body>
 
 </html>
