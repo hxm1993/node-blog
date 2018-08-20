@@ -1,5 +1,6 @@
 {{extend ("./layout")}}
 {{#block ("body")}}
+<div>{{count}}</div>
   <!-- Page Header -->
   <!-- Set your background image for this header on the line below. -->
   <header class="intro-header" style="background-image: url('/images/home-bg.jpg')">
@@ -21,7 +22,7 @@
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         {{#each(content)}}
         <div class="post-preview">
-          <a href="post.html">
+          <a href="/detail/{{this.id}}">
             <h2 class="post-title">{{this.title}}t</h2>
             <h3 class="post-subtitle">{{this.description}}</h3>
           </a>
@@ -31,8 +32,12 @@
         {{/each}}
         <!-- Pager -->
         <ul class="pager">
-          <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Newer</a></li>
-          <li class="next"><a href="#">Older <span aria-hidden="true">&rarr;</span></a></li>
+          {{# if(nowPage > 1)}}
+          <li class="previous"><a href="/home/{{nowPage - 1}}"><span aria-hidden="true">&larr;</span> Newer</a></li>
+          {{/ if}}
+          {{# if(nowPage + 1 <= totalPage)}}
+          <li class="next"><a href="/home/{{nowPage + 1}}">Older <span aria-hidden="true">&rarr;</span></a></li>
+          {{/ if}}
         </ul>
       </div>
     </div>
