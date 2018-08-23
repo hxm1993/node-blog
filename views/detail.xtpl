@@ -53,7 +53,7 @@
         <div id="meida_box"></div>
         <hr>
         <form class="row">
-          <div class="col-md-6 col-xs-12">
+          {{! <div class="col-md-6 col-xs-12">
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" name="name" id="name" class="form-control">
@@ -64,7 +64,7 @@
               <label for="email">Email</label>
               <input type="text" name="email" id="email" class="form-control">
             </div>
-          </div>
+          </div> }}
           <div class="col-xs-12">
             <div class="form-group">
               <label for="comment">Comment</label>
@@ -76,8 +76,8 @@
               <button class="btn btn-default btn-block" id="sendComment">Submit</button>
             </div>
           </div>
-          <input type="hidden" id="detailId" value={{detailData.id}} />
-          <input type="hidden" id="userId" value={{detailData.id}} />
+          <input type="hidden" id="detailId" value={{detailData.aid}} />
+          <input type="hidden" id="userId" value={{detailData.userId}} />
         </form>
       </div>
     </div>
@@ -93,6 +93,7 @@
         let name = $("#name").val();
         let email = $("#email").val();
         let comment = $("#comment").val();
+        let userId = $("#userId").val();
         console.log(email)
         console.log(email)
         $.ajax({
@@ -102,7 +103,7 @@
                 name: name,
                 email: email,
                 comment: comment,
-                articleId: id
+                userId: userId,
             },
             success: function(data) {
                 if(data.code == "200") {

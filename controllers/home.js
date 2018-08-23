@@ -24,8 +24,8 @@ var detail = async (ctx, next) => {
     let detailData;
     let detailComment;
     await modules.findOnce(index).then((data) => {
-        console.log('detail', data)
         detailData = data[0];
+        console.log(detailData)
     })
     await modules.getComment(index).then((comment) => {
         detailComment = comment;
@@ -37,9 +37,16 @@ var detail = async (ctx, next) => {
 }
 
 var postComment = async (ctx, next) => {
-    let index = ctx.params.index;
-    console.log("ctx!!!!!!!!!!!!!!!!!!!!!!!!!!!!", ctx.request.body);
+    // let index = ctx.params.index;
+    
+    let comment = ctx.request.body
+    comment.aid = ctx.params.index;
+    console.log('comment', comment)
+    console.log("ctx!!!!!!!!!!!!!!!!!!!!!!!!!!!!", comment);
 
+    await modules.addComment(comment).then((data) => {
+        console.log('add comment success!!')
+    })
     ctx.body = {
         code: 200,
         message: '评论成功'

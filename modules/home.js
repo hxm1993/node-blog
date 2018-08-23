@@ -12,15 +12,21 @@ class Home {
         return db.query(sql);
     }
     static findOnce(id) {
-        let sql = `select * from article where id = ${id}`;
+        let sql = `select a.*, a.id as aid, b.*, b.id as userId from article a join user b on a.author = b.id where a.id = ${id}`;
         return db.query(sql);
     }
     static getComment(id) {
-        let sql = `select * from pinglun as p join admin as a on p.uid = a.id  where aid = ${id}`;
+        let sql = `select p.*, u.*, u.id as userId from pinglun p join user u on p.uid = u.id  where p.aid = ${id}`;
         return db.query(sql);
     }
-    static addComment() {
-        let sql = "insert into pinglun value()"
+    static addComment(data) {
+        let uid = data.userId;
+        let aid = data.aid;
+        let content = data.comment;
+        let time = new Date().getTime();
+        let sql = `insert into pinglun (uid, aid, content, time) value (${uid}, ${aid}, "${content}", ${time})`;
+        console.log(sql)
+        return db.query(sql);
     }
 }
 

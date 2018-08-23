@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Clean Blog</title>
+  <!-- Bootstrap Core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Theme CSS -->
+  <link href="/css/clean-blog.css" rel="stylesheet">
+  <!-- Custom Fonts -->
+  <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <style>
+    .login {
+        width: 500px;
+        height: 300px;
+        border: 1px solid #ccc;
+        margin: 200px auto;
+        padding-top: 50px;
+    }
+    .login p {
+        text-align: center;
+    }
+    #submit {
+        margin-left: 50px;
+    }
+    #operation {
+        text-align: right;
+        padding-right: 90px;
+    }
+  </style>
+</head>
+
+<body>
+    <form class="login">
+        <p>
+            <label>用户名</label>
+            <input type="text" id="name" name="username" />
+        </p>
+        <p>
+            <label>密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+            <input type="password" id="pswd" name="pswd" />
+        </p>
+        <p id="operation">
+            <button id="cancel">取消</button>
+            <button id="submit">确定</button> 
+        </p>
+    </form>
+
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script>
+        $("#submit").on("click", function(e) {
+            let name = $("#name").val();
+            let pswd = $("#pswd").val();
+            $.ajax({
+                type: "post",
+                url: "/login/submit",
+                data: {
+                    username: name,
+                    password: pswd
+                },
+                success: function(data) {
+                    console.log(data)
+                    alert("登录成功！")
+                    localStorage.setItem("username", data.username)
+                    location.href="/home/1"
+                },
+                error: function(err) {
+                    console.log(err)
+                    alert("用户名或密码错误，请重新输入！")
+
+                }
+            })
+            e.preventDefault();
+        })
+    </script>
+</body>
+</html>
